@@ -1,0 +1,70 @@
+1) 
+
+mysql> show databases;
++----------------------------+
+| Database                   |
++----------------------------+
+| demojpa                    |
+| information_schema         |
+| jpa_demo                   |
+| manytomany                 |
+| mysql                      |
+| new_db                     |
+| performance_schema         |
+| spring_boot_one_to_many_db |
+| spring_db                  |
+| spring_manytoone           |
+| springboot_book_db         |
+| springboot_db              |
+| springboot_mtom_db         |
+| springboot_onetoone_db     |
+| springdata                 |
+| sys                        |
+| test_jpa_one_to_many       |
+| unit_test_db               |
++----------------------------+
+18 rows in set (0.00 sec)
+
+
+2)
+
+mysql> use demojpa;
+Database changed
+mysql> show tables;
++--------------------+
+| Tables_in_demojpa  |
++--------------------+
+| employee           |
+| employee_address   |
+| hibernate_sequence |
+| library            |
+| library_student    |
+| student            |
+| student_library    |
+| subject            |
++--------------------+
+8 rows in set (0.00 sec)
+
+3)
+
+mysql> desc employee;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| e_id   | int          | NO   | PRI | NULL    |       |
+| e_name | varchar(255) | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+4)
+
+mysql> select * from employee;
++------+---------+
+| e_id | e_name  |
++------+---------+
+|    1 | Vijay   |
+|    2 | Vijay   |
+|    3 | William |
+|    4 | Rahul   |
++------+---------+
+4 rows in set (0.03 sec)

@@ -1,0 +1,531 @@
+> show dbs
+admin   0.000GB
+cdac23  0.000GB
+config  0.000GB
+local   0.000GB
+> use cdac23
+switched to db cdac23
+> show collections
+Student
+> db.Student.insert({'name':'suresh','age':'12'})
+WriteResult({ "nInserted" : 1 })
+
+> db.Student.findOne()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse"
+}
+
+> db.Student.findOne({'name':'ramesh'})
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse"
+}
+
+
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "12"
+}
+
+> db.Student.findOne({'language':'java'})
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse"
+}
+
+> db.Student.update({'name':'suresh'},{$set:{'age':'25'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+>
+
+
+
+> db.Student.update({'name':'suresh'},{$set:{'age':'25','city':'nagpur'}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+> db.Student.find()
+{ "_id" : ObjectId("65325038793bc234b1b336f8"), "name" : "ramesh", "language" : "java", "branch" : "cse" }
+{ "_id" : ObjectId("65325176565cb7f4a7fa19e1"), "name" : "suresh", "age" : "25", "city" : "nagpur" }
+>
+
+> db.Student.update({'name':'bahvesh'},{$set:{'age':'25','city':'nagpur'}},{upsert:true})
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 1,
+        "nModified" : 0,
+        "_id" : ObjectId("6532544a69fce17367f17e9f")
+})
+> db.Student.find()
+{ "_id" : ObjectId("65325038793bc234b1b336f8"), "name" : "ramesh", "language" : "java", "branch" : "cse" }
+{ "_id" : ObjectId("65325176565cb7f4a7fa19e1"), "name" : "suresh", "age" : "25", "city" : "nagpur" }
+{ "_id" : ObjectId("6532544a69fce17367f17e9f"), "name" : "bahvesh", "age" : "25", "city" : "nagpur" }
+>
+
+
+> db.Student.updateMany({},{$rename:{'lang':'language'}})
+{ "acknowledged" : true, "matchedCount" : 3, "modifiedCount" : 0 }
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur"
+}
+{
+        "_id" : ObjectId("6532544a69fce17367f17e9f"),
+        "name" : "bahvesh",
+        "age" : "25",
+        "city" : "nagpur"
+}
+>
+
+
+> db.Student.remove({'name':'bahvesh'})
+WriteResult({ "nRemoved" : 1 })
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur"
+}
+>
+
+
+> db.Student.updateMany({},{$set:{'address':'xyz'}})
+{ "acknowledged" : true, "matchedCount" : 2, "modifiedCount" : 2 }
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse",
+        "address" : "xyz"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur",
+        "address" : "xyz"
+}
+>
+
+
+> db.Student.updateMany({'name':'ramesh'},{$set:{'age':'20'}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse",
+        "address" : "xyz",
+        "age" : "20"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur",
+        "address" : "xyz"
+}
+>
+
+
+
+> db.Student.find({'age':{$gt:'10'}}).pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse",
+        "address" : "xyz",
+        "age" : "20"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur",
+        "address" : "xyz"
+}
+
+
+> db.Student.find({'age':{$lt:'25'}}).pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse",
+        "address" : "xyz",
+        "age" : "20"
+}
+>
+
+> db.Student.insert({'name':'suresh','lang':'java','branch':'mech','phone':[11111,1222222,1122222]})
+WriteResult({ "nInserted" : 1 })
+
+
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse",
+        "address" : "xyz",
+        "age" : "20"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur",
+        "address" : "xyz"
+}
+{
+        "_id" : ObjectId("653259c4a6b8f4a762158633"),
+        "name" : "suresh",
+        "lang" : "java",
+        "branch" : "mech",
+        "phone" : [
+                11111,
+                1222222,
+                1122222
+        ]
+}
+>
+
+
+> db.Student.insert({'name':'ramu','lang':'c','branch':'ele','phone':11111,'address':{'ho':1233,'landmark':'xyz','pincode':123}})
+WriteResult({ "nInserted" : 1 })
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse",
+        "address" : "xyz",
+        "age" : "20"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur",
+        "address" : "xyz"
+}
+{
+        "_id" : ObjectId("653259c4a6b8f4a762158633"),
+        "name" : "suresh",
+        "lang" : "java",
+        "branch" : "mech",
+        "phone" : [
+                11111,
+                1222222,
+                1122222
+        ]
+}
+{
+        "_id" : ObjectId("65325adfa6b8f4a762158634"),
+        "name" : "ramu",
+        "lang" : "c",
+        "branch" : "ele",
+        "phone" : 11111,
+        "address" : {
+                "ho" : 1233,
+                "landmark" : "xyz",
+                "pincode" : 123
+        }
+}
+
+
+> db.Student.find().limit(2)
+{ "_id" : ObjectId("65325038793bc234b1b336f8"), "name" : "ramesh", "language" : "java", "branch" : "cse", "address" : "xyz", "age" : "20" }
+{ "_id" : ObjectId("65325176565cb7f4a7fa19e1"), "name" : "suresh", "age" : "25", "city" : "nagpur", "address" : "xyz" }
+> db.Student.find().limit(2).skip(2)
+{ "_id" : ObjectId("653259c4a6b8f4a762158633"), "name" : "suresh", "lang" : "java", "branch" : "mech", "phone" : [ 11111, 1222222, 1122222 ] }
+{ "_id" : ObjectId("65325adfa6b8f4a762158634"), "name" : "ramu", "lang" : "c", "branch" : "ele", "phone" : 11111, "address" : { "ho" : 1233, "landmark" : "xyz", "pincode" : 123 } }
+> db.Student.find().limit(2).skip(1)
+{ "_id" : ObjectId("65325176565cb7f4a7fa19e1"), "name" : "suresh", "age" : "25", "city" : "nagpur", "address" : "xyz" }
+{ "_id" : ObjectId("653259c4a6b8f4a762158633"), "name" : "suresh", "lang" : "java", "branch" : "mech", "phone" : [ 11111, 1222222, 1122222 ] }
+>
+
+
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse",
+        "address" : "xyz",
+        "age" : "20"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur",
+        "address" : "xyz"
+}
+{
+        "_id" : ObjectId("653259c4a6b8f4a762158633"),
+        "name" : "suresh",
+        "lang" : "java",
+        "branch" : "mech",
+        "phone" : [
+                11111,
+                1222222,
+                1122222
+        ]
+}
+{
+        "_id" : ObjectId("65325adfa6b8f4a762158634"),
+        "name" : "ramu",
+        "lang" : "c",
+        "branch" : "ele",
+        "phone" : 11111,
+        "address" : {
+                "ho" : 1233,
+                "landmark" : "xyz",
+                "pincode" : 123
+        }
+}
+> db.Student.count({'lang':'c'})
+1
+>
+
+
+// increaing order
+
+> db.Student.find().sort({'age':1})
+{ "_id" : ObjectId("653259c4a6b8f4a762158633"), "name" : "suresh", "lang" : "java", "branch" : "mech", "phone" : [ 11111, 1222222, 1122222 ] }
+{ "_id" : ObjectId("65325adfa6b8f4a762158634"), "name" : "ramu", "lang" : "c", "branch" : "ele", "phone" : 11111, "address" : { "ho" : 1233, "landmark" : "xyz", "pincode" : 123 } }
+{ "_id" : ObjectId("65325038793bc234b1b336f8"), "name" : "ramesh", "language" : "java", "branch" : "cse", "address" : "xyz", "age" : "20" }
+{ "_id" : ObjectId("65325176565cb7f4a7fa19e1"), "name" : "suresh", "age" : "25", "city" : "nagpur", "address" : "xyz" }
+>
+
+
+
+// decrizing  descreaing order
+
+> db.Student.find().sort({'age':-1})
+{ "_id" : ObjectId("65325176565cb7f4a7fa19e1"), "name" : "suresh", "age" : "25", "city" : "nagpur", "address" : "xyz" }
+{ "_id" : ObjectId("65325038793bc234b1b336f8"), "name" : "ramesh", "language" : "java", "branch" : "cse", "address" : "xyz", "age" : "20" }
+{ "_id" : ObjectId("653259c4a6b8f4a762158633"), "name" : "suresh", "lang" : "java", "branch" : "mech", "phone" : [ 11111, 1222222, 1122222 ] }
+{ "_id" : ObjectId("65325adfa6b8f4a762158634"), "name" : "ramu", "lang" : "c", "branch" : "ele", "phone" : 11111, "address" : { "ho" : 1233, "landmark" : "xyz", "pincode" : 123 } }
+>
+
+
+> db.Student.createIndex({'name':1})
+{
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+
+
+
+
+> db.Student.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "name" : 1
+                },
+                "name" : "name_1"
+        }
+]
+
+
+
+
+
+> db.Student.createIndex({'id':1})
+{
+        "numIndexesBefore" : 2,
+        "numIndexesAfter" : 3,
+        "createdCollectionAutomatically" : false,
+        "ok" : 1
+}
+> db.Student.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "name" : 1
+                },
+                "name" : "name_1"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "id" : 1
+                },
+                "name" : "id_1"
+        }
+]
+
+
+> db.Student.dropIndexes({'id':1})
+{ "nIndexesWas" : 3, "ok" : 1 }
+> db.Student.getIndexes()
+[
+        {
+                "v" : 2,
+                "key" : {
+                        "_id" : 1
+                },
+                "name" : "_id_"
+        },
+        {
+                "v" : 2,
+                "key" : {
+                        "name" : 1
+                },
+                "name" : "name_1"
+        }
+]
+
+
+
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse",
+        "address" : "xyz",
+        "age" : "20"
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur",
+        "address" : "xyz"
+}
+{
+        "_id" : ObjectId("653259c4a6b8f4a762158633"),
+        "name" : "suresh",
+        "lang" : "java",
+        "branch" : "mech",
+        "phone" : [
+                11111,
+                1222222,
+                1122222
+        ]
+}
+{
+        "_id" : ObjectId("65325adfa6b8f4a762158634"),
+        "name" : "ramu",
+        "lang" : "c",
+        "branch" : "ele",
+        "phone" : 11111,
+        "address" : {
+                "ho" : 1233,
+                "landmark" : "xyz",
+                "pincode" : 123
+        }
+}
+
+
+
+
+> db.Student.update({'name':'ramesh'},{$inc:{'salary':12233}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+
+
+
+> db.Student.update({'name':'ramesh'},{$inc:{'salary':-5}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.Student.find().pretty()
+{
+        "_id" : ObjectId("65325038793bc234b1b336f8"),
+        "name" : "ramesh",
+        "language" : "java",
+        "branch" : "cse",
+        "address" : "xyz",
+        "age" : "20",
+        "salary" : 12228
+}
+{
+        "_id" : ObjectId("65325176565cb7f4a7fa19e1"),
+        "name" : "suresh",
+        "age" : "25",
+        "city" : "nagpur",
+        "address" : "xyz"
+}
+{
+        "_id" : ObjectId("653259c4a6b8f4a762158633"),
+        "name" : "suresh",
+        "lang" : "java",
+        "branch" : "mech",
+        "phone" : [
+                11111,
+                1222222,
+                1122222
+        ]
+}
+{
+        "_id" : ObjectId("65325adfa6b8f4a762158634"),
+        "name" : "ramu",
+        "lang" : "c",
+        "branch" : "ele",
+        "phone" : 11111,
+        "address" : {
+                "ho" : 1233,
+                "landmark" : "xyz",
+                "pincode" : 123
+        }
+}
+
+
+
+
+
+
+
