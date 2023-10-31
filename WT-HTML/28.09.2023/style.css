@@ -1,0 +1,26 @@
+
+        /* body{
+            background-image: url("a.jpg");
+        } */
+
+        .abc {
+            background-color: cadetblue;
+            height: 100px;
+            width: 150px;
+            color: azure;
+            padding-top: 20px;
+            padding-left: 20px;
+            margin-top: 15px;
+            margin-left: 50px;
+        }
+
+        #xyz {
+            background-color: rgb(10, 181, 186);
+            height: 100px;
+            width: 150px;
+            color: black;
+            padding-top: 20px;
+            padding-left: 20px;
+            margin-top: 15;
+            margin-left: 50px;
+        }
