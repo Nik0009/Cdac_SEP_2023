@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <h1>contact page</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Eius at laudantium ea officiis sapiente qui. Sequi,
+        voluptas libero! Animi repellat ratione debitis numquam
+        doloremque voluptas sequi ab accusamus odio incidunt.</p>
+
+    {{#if contacts}}
+    <ul>
+        {{#each contacts}}
+        <li> <a href="/about/{{this.name}}">{{this.name}}</a>
+            {{!-- {{this.name}} <span class="px-2"></span> --}}
+            {{this.age}}
+            <span class="px-2"></span>
+            {{this.mobile}}
+        </li>
+        {{/each}}
+    </ul>
+    {{else}}
+    <h2>No Data Found</h2>
+    {{/if}}
+
+</body>
+
+</html>
