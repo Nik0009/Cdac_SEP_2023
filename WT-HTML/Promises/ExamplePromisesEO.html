@@ -1,0 +1,32 @@
+<script>
+    let p = new Promise((resolve, reject) => {
+
+        let n = prompt("Enter a number:")
+
+        try {
+            n=parseInt(n)
+            if(n>0){
+                if (n % 2 == 0) {
+                resolve(n + " is even number.")
+            }
+            else {
+                resolve(n + " is odd odd number.")
+            }
+            }
+            else{
+                reject("number cannot negative or zero :"+n)
+            }      
+        }
+        catch (err) {
+            reject(err)
+        }
+    })
+
+
+    p.then((result)=>{                // called for resolve()
+        console.log(result)
+    }).catch((error)=>{              // called for reject()
+        console.error(error)
+    })
+
+</script>

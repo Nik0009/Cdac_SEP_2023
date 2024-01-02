@@ -1,0 +1,28 @@
+
+<h1>Balance=2000</h1></br>
+<input type="text" id="no" placeholder="Enter amount to withdrawal" />
+<input type="submit" onclick="cal()" placeholder="withdrwal" />
+
+<script>
+    let bal = 2000;
+     let n = document.getElementById("no").value
+    function cal(n) {
+        let p = new Promise((resolve, reject) => {
+            if (n <= 2000) {
+                resolve("you can withdrawal")
+            }
+            else {
+                reject("you cannot withdrawal amount.")
+            }
+        })
+
+
+        p.then((result) => {
+            console.log(result)
+            // bal = bal - n
+            // prompt("remaing amount is ", bal)
+        }).catch((error) => {
+            console.error(error)
+        })
+    }
+</script>

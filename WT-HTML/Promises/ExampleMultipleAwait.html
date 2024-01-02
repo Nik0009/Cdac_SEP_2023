@@ -1,0 +1,32 @@
+<div id="demo">
+    please wait...
+</div>
+
+<script>
+
+    // await call inside async and wait for complete 
+
+    async function myFunction1() {
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("myFunction1 after 3 sec..")
+            },3000)
+        })
+    }
+
+    async function myFunction2() {
+        return new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve("myFunction2 after 2 sec..")
+            },2000)
+        })
+    }
+
+    async function callAll(){
+        document.getElementById("demo").innerHTML=await myFunction1()
+        document.getElementById("demo").innerHTML=await myFunction2()
+    }
+
+    callAll()
+
+</script>

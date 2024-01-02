@@ -1,0 +1,15 @@
+<script>
+
+        // async is a  keyword which apply on a function then this function will return value in promies object
+
+
+    async function getData(){
+        return "result success"     // by default call resolve()
+    }
+
+    promiseObject=getData()
+
+    promiseObject.then((result)=>{
+        console.log(result)
+    })
+</script>

@@ -1,0 +1,16 @@
+<script>
+    p=new Promise((resolve,reject)=>{
+        resolve("success...")
+       // reject("error..")
+    })
+
+    p.then((result)=>{
+        console.log("the 1: ",result)
+    }).then(()=>{
+        console.log("the 2")
+    }).then(()=>{
+        console.log("the 3")
+    }).catch((err)=>{
+        console.log(err)
+    })
+</script>

@@ -1,0 +1,20 @@
+<div id="demo">
+    please wait...
+</div>
+
+
+<script>
+    // await keyword always use with async keyword..
+
+    async function getData() {
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("Data fatching successful")
+            }, 3000)
+        })
+        document.getElementById("demo").innerHTML=await p
+    }
+
+    getData()
+
+</script>

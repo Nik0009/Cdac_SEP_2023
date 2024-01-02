@@ -1,0 +1,25 @@
+<script>
+    p=new Promise((resolve,reject)=>{
+
+        //code
+
+        let flag=false
+        //let flag=true
+
+        if(flag){
+            resolve("success")
+        }
+        else{
+            reject("error here")
+        }
+    })
+
+    console.log(p)
+
+    p.then((result)=>{
+        console.log("result in then is",result)
+    }).catch((error)=>{
+        console.error("error in catch is",error)
+    })
+
+</script>
