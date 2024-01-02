@@ -1,0 +1,78 @@
+
+body, h1, h2, h3, p, ul, li, form {
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.829);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    
+}
+
+.logo img {
+    height: 40px;
+
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+main {
+    text-align: center;
+    margin: 20px;
+}
+
+.login {
+  border: 1px solid #f9f4f4;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, .5);
+    
+}
+
+.login h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.login button {
+   background-color:#4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+
+}
+.h1
+{
+    background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 0));
+}
