@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="5.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd">
+    <servlet>
+        <servlet-name>demo12</servlet-name>
+        <servlet-class>demo12</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>demo12</servlet-name>
+        <url-pattern>/life</url-pattern>
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>BasicConcept2</servlet-name>
+        <servlet-class>concept.BasicConcept2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BasicConcept2</servlet-name>
+        <url-pattern>/con</url-pattern>
+    </servlet-mapping>
+    
+</web-app>
