@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+    <script>
+        // $(document).ready(function () {
+
+        //     $("#btn-show").bind("click",function () {
+        //         alert($("#name").val())
+        //     })
+
+        // })
+
+
+        // $(document).ready(function () {
+
+        //     $("#btn-show").on("click", function () {
+        //         alert($("#name").val())
+        //     })
+
+        // })
+
+
+
+
+        $(document).ready(function () {
+            function getName(){
+                alert($("#name").val())
+            }
+
+            $("#btn-show").on("click mouseover",getName)
+
+
+
+            $("#btn-remove").click(function(){
+                $("#btn-show").off("click mouseover",getName)
+            })
+
+        })
+
+    </script>
+
+</head>
+
+<body>
+    <pre>
+        addEventListener() => on() bind()
+        removeEventListener() => off() unbind()
+    </pre>
+
+
+    <div class="mb-3 mt-3">
+        label <for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter name">
+    </div>
+
+    <button type="button" class="btn btn-primary" id="btn-show">show name</button>
+    <button type="button" class="btn btn-primary" id="btn-remove">Remove Event</button>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

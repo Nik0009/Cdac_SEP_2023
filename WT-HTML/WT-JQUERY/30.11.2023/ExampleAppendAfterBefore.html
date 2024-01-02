@@ -1,0 +1,201 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script>
+        $(document).ready(function(){
+
+            
+
+
+            // const row=getRow()
+
+            $("#btn-append").click(function(){
+                $("tbody").append(getRow())
+            })
+
+            $("#btn-prepend").click(function(){
+                $("tbody").prepend(getRow())
+            })
+
+
+            function getRow(){
+
+                const name=$("#name").val().trim()
+                const age=$("#age").val().trim()
+                const mobile=$("#mobile").val().trim()
+
+                return `<tr>
+                    <td>${"name"}</td>
+                    <td>${"age"}</td>
+                    <td>${"mobile"}</td>
+                    </tr>
+                    `
+
+                }
+
+        })
+    </script>
+    
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-4">
+                <form action="">
+                    <div class="mb-3 mt-3">
+                      <label for="name" class="form-label">Name:</label>
+                      <input type="text" class="form-control" id="name" placeholder="Enter name" name="name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="age" class="form-label">Age:</label>
+                      <input type="age" class="form-control" id="age" placeholder="Enter age" name="age">
+                    </div>
+                    <div class="mb-3">
+                      <label for="mobile" class="form-label">mobile no.:</label>
+                      <input type="tel" class="form-control" id="mobile" placeholder="Enter mobile no" name="mobile">
+                    </div>
+                    
+                    <!-- <button type="button" class="btn btn-primary" id="btn-add">Add</button> -->
+<!-- 
+                  </form>
+
+            </div>
+            <div class="col-8">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Mobile no.</th>
+                        </tr>
+        
+                        <tbody id="tbody">
+        
+        
+                        </tbody>
+                    </thead>
+                </table>
+        
+                <button type="button" class="btn btn-success" id="btn-append">Append</button>
+                <button type="button" class="btn btn-danger" id="btn-prepend">Prepend</button>
+
+            </div>
+            
+          </div>
+
+
+    </div>
+
+    
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html> --> -->
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        $(document).ready(function () {
+            $("#btn-append").click(function () {
+
+                $("#tbody").append(getRow())
+            })
+            $("#btn-prepend").click(function () {
+
+                $("#tbody").prepend(getRow())
+            })
+            $("#btn-after").click(function () {
+
+                $("table").after(`<div class="alert alert-success">
+  <strong>Success!</strong> Indicates a successful or positive action.
+</div>`)
+            })
+            $("#btn-before").click(function () {
+
+                $("table").before(`<div class="alert alert-danger">
+  <strong>danger!</strong> Indicates a Failed or negative action.
+</div>`)
+            })
+            function getRow() {
+                const name = $("#name").val().trim()
+                const age = $("#age").val().trim()
+                const mobile = $("#mobile").val().trim()
+                return `<tr>
+                                     <td>${name}</td>
+                                     <td>${age}</td>
+                                     <td>${mobile}</td>
+                                     </tr>
+                    `
+            }
+        })
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="mb-3 mt-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="age" class="form-label">Age:</label>
+                    <input type="age" class="form-control" id="age" placeholder="Enter age" name="age">
+                </div>
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Mobile no:</label>
+                    <input type="mobile" class="form-control" id="mobile" placeholder="Enter mobile no." name="mobile">
+                </div>
+                <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+            </div>
+            <div class="col-8">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Mobile No.</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-success" id="btn-append">Append</button>
+                <button type="button" class="btn btn-danger" id="btn-prepend">Prepend</button>
+                <button type="button" class="btn btn-success" id="btn-after">After</button>
+                <button type="button" class="btn btn-danger" id="btn-before">Before</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

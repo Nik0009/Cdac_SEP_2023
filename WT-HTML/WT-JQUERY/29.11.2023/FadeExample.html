@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <style>
+        .box{
+            height: 300px;
+            width: 500px;
+            background-color: navy;
+            border-radius: 20px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function (){
+            $("#btnFadeIn").click(function(){
+                $(".box").fadeIn()
+            })
+
+            $("#btnFadeOut").click(function(){
+                $(".box").fadeOut()
+            })
+
+            $("#btnFadeToggle").click(function(){
+                $(".box").fadeToggle(3000)
+            })
+
+           
+        })
+
+       
+    </script>
+
+</head>
+<body>
+    <div id="box" class="box">
+
+    </div>
+
+    <button id="btnFadeIn">FadeIn</button>
+    <button id="btnFadeOut">FadeOut</button>
+    <button id="btnFadeToggle">FadeToggle</button>
+    
+</body>
+</html>

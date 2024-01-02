@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <style>
+        .box {
+            height: 300px;
+            width: 400px;
+            background-color: aqua;
+            border-radius: 20px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#btnSlideUp").click(function () {
+                $("#box").slideUp()
+            })
+        })
+
+        $(document).ready(function () {
+
+            $("#btnSlideDown").click(function () {
+                $("#box").slideDown()
+            })
+        })
+
+        $(document).ready(function () {
+
+            $("#btnSlideToggle").click(function () {
+
+                $("#box").slideToggle(5000,function(){
+                    alert("I M Happy..")
+                })
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <div class="box" id="box"> </div>
+
+    <button id="btnSlideUp">SlideIn</button>
+    <button id="btnSlideDown">SlideDown</button>
+    <button id="btnSlideToggle">SlideToggle</button>
+</body>
+
+</html>

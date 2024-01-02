@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+    <script>
+        $(document).ready(function(){
+            $("#box").mousemove(function(event){
+                let x=event.clientX
+                let y=event.clientY
+
+                $("#cords").text(`cords(${x},${y})`)
+
+            })
+        })
+    </script>
+
+
+
+
+</head>
+
+<body>
+
+
+    <div class="alert alert-success" style="height: 50vh;" id="box">
+        <strong>Success!</strong> Indicates a successful or positive action.
+      </div>
+
+      <span class="px-5 bg-dark text-white" id="cords"></span>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+    <button type="button" class="btn">Basic</button>
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-link">Link</button> -->
+
+
+
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

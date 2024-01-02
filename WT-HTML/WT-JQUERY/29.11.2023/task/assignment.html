@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"> </script>
+   
+    <style>
+        .DD {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            width: 200px;
+            height: 270px;
+        }
+
+        .contain {
+            display: flex;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <div class="contain">
+        &nbsp;&nbsp;
+        <div id="div1" class="DD"> </div> &nbsp;&nbsp;
+        
+        <div id="div2" class="DD"></div> &nbsp;&nbsp;
+        
+        <div id="div3" class="DD"></div> &nbsp;&nbsp;
+    </div>
+    <br>
+
+    <button id="okbtn">OK</button>
+
+    <select id="selectDiv">
+        <option value="div1">div1</option>
+        <option value="div2">div2</option>
+        <option value="div3">div3</option>
+    </select>
+
+    <select id="selectImg">
+        <option value="image1.jpg">King</option> &nbsp;&nbsp;
+        <option value="image2.jpg">Queen</option> &nbsp;&nbsp;
+        <option value="image3.jpg">Joker</option>
+    </select>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#okbtn").click(function () {
+                var seleDiv = $("#selectDiv").val()
+                var seleimg = $("#selectImg").val()
+
+                $("#" + seleDiv).html("<img src='" + seleimg + "'>")
+
+
+            })
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#getTxt").click(function () {
+                alert($("#inputField").attr("value"))
+            })
+
+            $("#setTxt").click(function () {
+                $("#inputField").attr("value" )
+            })
+
+            $("#disabledTxt").click(function () {
+                // $("#inputField").attr("disabled",true)
+
+                if ($("#inputField").prop("disabled")) {
+                    $("#inputField").prop("disabled", false)  // enabled
+                }
+                else {
+                    $("#inputField").prop("disabled", true)    // disenabled
+                }
+
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <input id="inputField" placeholder="Enter name" value="12344" disabled="false">
+    <button id="getTxt">Get Text</button>
+    <button id="setTxt">Set Text</button>
+    <button id="disabledTxt">Disabled Text</button>
+
+</body>
+
+</html>

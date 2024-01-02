@@ -1,0 +1,84 @@
+  // const name=$("#name").val().trim()
+            // const age=$("#age").val().trim()
+            // const mobile=$("#mobile").val().trim()
+
+             // $("#btn-append").click(function(){
+            //     $("tbody").append(`<tr>
+            //         <td>${"name"}</td>
+            //         <td>${"age"}</td>
+            //         <td>${"mobile"}</td>
+            //         </tr>
+            //         `)
+            // })
+
+            // $("#btn-prepend").click(function(){
+            //     $("tbody").prepend(`<tr>
+            //         <td>${"name"}</td>
+            //         <td>${"age"}</td>
+            //         <td>${"mobile"}</td>
+            //         </tr>
+            //         `)
+            // })
+
+
+            // const values=getValues()
+
+            // $("#btn-append").click(function(){
+            //     $("tbody").append(`<tr>
+            //         <td>${"values.name"}</td>
+            //         <td>${"values.age"}</td>
+            //         <td>${"values.mobile"}</td>
+            //         </tr>
+            //         `)
+            // })
+
+            // $("#btn-prepend").click(function(){
+            //     $("tbody").prepend(`<tr>
+            //         <td>${"values.name"}</td>
+            //         <td>${"values.age"}</td>
+            //         <td>${"values.mobile"}</td>
+            //         </tr>
+            //         `)
+            // })
+
+            
+
+           
+
+            // function getValues(){
+
+            // const name=$("#name").val().trim()
+            // const age=$("#age").val().trim()
+            // const mobile=$("#mobile").val().trim()
+
+            // return {name,age,mobile}
+
+            // }
+
+
+
+
+
+ // $("#btn-append").click(function(){
+            //     $("tbody").append(`<tr>
+            //         <td>Sumit</td>
+            //         <td>23</td>
+            //         <td>8675647455</td>
+            //         </tr>
+            //         `)
+            // })
+
+
+            // $("#btn-prepend").click(function(){
+            //     $("tbody").prepend(`<tr>
+            //         <td>Amit</td>
+            //         <td>30</td>
+            //         <td>7775647455</td>
+            //         </tr>
+            //         `)
+            // })
+
+
+
+
+

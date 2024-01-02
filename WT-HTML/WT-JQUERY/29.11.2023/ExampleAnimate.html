@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <style>
+        .box{
+            position: relative;
+            height: 300px;
+            width: 300px;
+            background-color: yellow;
+            
+        }
+    </style>
+
+    <script>
+    
+
+        $(document).ready(function(){
+            $("#btnAnimate").click(function(){
+
+                // const op=document.getElementById("opacityVal").value
+
+                const op=$("#opacityVal").val()
+
+                $("#box").animate({
+                    left:"200px",
+                    top:"100px",
+                    opacity:op
+                },3000)
+            })
+        })
+    </script>
+
+</head>
+<body>
+    
+    <div class="box" id="box"></div>
+    <input id="opacityVal" placeholder="Enter opacity:">
+
+    <button id="btnAnimate">Animate Box</button>
+
+
+
+    <pre>
+
+        backgroundPositionX
+        backgroundPositionY
+        borderWidth
+        borderBottomWidth
+        borderLeftWidth
+        borderRightWidth
+        borderTopWidth
+        borderSpacing
+        margin
+        marginBottom
+        marginLeft
+        marginRight
+        marginTop
+        opacity
+        outlineWidth
+        padding
+        paddingBottom
+        paddingLeft
+        paddingRight
+        paddingTop
+        height
+        width
+        maxHeight
+        maxWidth
+        minHeight
+        minWidth
+        fontSize
+        bottom
+        left
+        right
+        top
+        letterSpacing
+        wordSpacing
+        lineHeight
+        textIndent
+        
+        
+        </pre>
+        
+        
+        
+</body>
+</html>

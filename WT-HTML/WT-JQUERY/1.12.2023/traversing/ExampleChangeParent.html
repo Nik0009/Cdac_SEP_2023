@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.min.js"></script>
+
+    <style>
+        .outer div {
+            padding: 50px 20px;
+            border: 2px solid black;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function(){
+                $(this).parent().css({ "background-color": "navy" })
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <div class="outer" style="display: flex; justify-content: space-around;">
+        
+        <div class="div1">
+            <button>Button1</button>    
+        </div>
+
+        <div class="div2">
+            <button>Button2</button>    
+        </div>
+
+        <div class="div3">
+            <button>Button3</button>    
+        </div>
+
+    </div>
+
+</body>
+
+</html>

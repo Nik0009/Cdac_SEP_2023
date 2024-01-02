@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Selector</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        .image-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <!-- <label for="divSelect">Select Div:</label> -->
+        <select id="divSelect">
+            <option value="div1">Div 1</option>
+            <option value="div2">Div 2</option>
+            <option value="div3">Div 3</option>
+        </select>
+    </div>
+
+    <div>
+        <!-- <label for="imageSelect">Select Image:</label> -->
+        <select id="imageSelect">
+            <option value="image1.jpg">Image 1</option>
+            <option value="image2.jpg">Image 2</option>
+            <option value="image3.jpg">Image 3</option>
+        </select>
+    </div>
+
+    <button id="okButton">OK</button>
+
+    <div id="div1" class="image-container">Div 1</div>
+    <div id="div2" class="image-container">Div 2</div>
+    <div id="div3" class="image-container">Div 3</div>
+
+    <script>
+        $(document).ready(function () {
+            $("#okButton").click(function () {
+                // Get selected values from dropdowns
+                var selectedDiv = $("#divSelect").val();
+                var selectedImage = $("#imageSelect").val();
+
+                // Set the selected image in the selected div
+                $("#" + selectedDiv).html("<img src='" + selectedImage + "' alt='Selected Image'>");
+            });
+        });
+    </script>
+
+</body>
+</html>
