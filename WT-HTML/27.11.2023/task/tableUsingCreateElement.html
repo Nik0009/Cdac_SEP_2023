@@ -1,0 +1,38 @@
+<style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+
+<script>
+    function addNames(){
+        let tablebox=document.querySelector("#table")
+
+         let tr=document.createElement("tr")
+
+        let td1=document.createElement("td")
+        let td2=document.createElement("td")
+
+        let text1=document.createTextNode(prompt("Enter First Name:"))
+        let text2=document.createTextNode(prompt("Enter Last Name:"))
+
+        td1.appendChild(text1)
+        td2.appendChild(text2)
+
+        let tr1=tr.appendChild(td1)
+        let tr2=tr.appendChild(td2)
+
+        tablebox.appendChild(tr)
+
+    }
+</script>
+
+<table id="table">
+    <tr >
+        <th style="size: 20px;">First Name</th>
+        <th style="size: 20px;">Last Name</th>
+    </tr>
+</table>
+<br/>
+<button onclick="addNames()" >Add Names</button>

@@ -1,0 +1,12 @@
+<input onkeyup="whichKey(event)">
+
+<script>
+    let val
+    function whichKey(e){
+       
+       if(!(e.keyCode>=48 && e.keyCode<=57)){
+            e.target.value= e.target.value.substring(0,e.target.value.length-1)
+        }
+        
+    }
+</script>

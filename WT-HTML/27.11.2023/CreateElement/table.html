@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function addListName(){
+        //     let list=document.querySelector("#table")
+
+        //     let tr=document.createElement("tr")
+        //     let td1=document.createElement("td")
+        //     let td2=document.createElement("td")  
+        //     let text=document.createTextNode(prompt("data"))
+
+        //     td1.appendChild(text)
+        //     td2.appendChild(text)
+
+        //     tr.appendChild(td1)
+        //     tr.appendChild(td2)
+            
+            
+
+        //     table.appendChild(tr)
+
+        // }
+
+
+
+        function addOption(){
+            let selectBox=document.querySelector("#selectBox")
+
+            let op=document.createElement("option")
+            let text=document.createTextNode("pune ")
+
+            op.appendChild(text)
+
+            op.value="pune"
+
+            selectBox.appendChild(op)
+        }
+    </script>
+</head>
+<body>
+    <!-- <ol id="list">
+        <li>hello</li>
+    </ol>
+    <button onclick="addListItem()">Add List Item</button>
+
+    <table id="table" border="1">hello</table> -->
+
+    <select  id="selectBox">
+        <option value="ngp">Nagpur</option>
+        
+    </select>
+    <button onclick="addOption()">add option</button>
+
+
+</body>
+</html>

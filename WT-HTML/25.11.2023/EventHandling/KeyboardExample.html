@@ -1,0 +1,18 @@
+<script>
+    function keyup(inputbox){
+        console.log(inputbox.value); 
+       // alert("keyup")
+        
+    }
+
+    function keydown(){
+        alert("keydown")
+    }
+
+    function keypress(inputbox){
+       // alert("keypress")
+       console.log(inputbox.value); 
+    }
+   
+</script>
+<input  onkeypress="keypress(this)" onkeydown="keydown()" >
