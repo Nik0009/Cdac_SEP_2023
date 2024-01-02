@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylee.css">
+    <script src="/script.js"></script>
+</head>
+<body>
+    <div class="box">
+        <form method="get" action="welcome.html" autocomplete="off">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Register Here</th>
+            </tr>
+        </thead>
+
+        <tr>
+            <td>Name</td>
+            <td>
+                <input type="text" name="name" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Age</td>
+            <td>
+                <input type="number" name="age" min="1" max="150" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Mobile No.</td>
+            <td>
+                <input type="tel" name="mobile" required >
+            </td>
+        </tr>
+
+        <tr>
+            <td>Email-id</td>
+            <td>
+                <input type="email" name="email" >
+            </td>
+        </tr>
+
+        <tr>
+            <td>Password</td>
+            <td>
+                <input type="password" name="password" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Confirm Password</td>
+            <td>
+                <input type="password" name="cpassword" required>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td>
+                Male : <input type="radio" name="Gender" value="male" checked >
+                Female : <input type="radio" name="Gender" value="female">
+            </td>
+        </tr>
+
+        <tr>
+            <td>City</td>
+            <td>
+                <select name="city" required>
+                    <option selected value="">Select City</option>
+                    <option  value="ngp">Nagpur</option>
+                    <option value="pune">Pune</option>
+                    <option value="nsk">Nashik</option>
+                    <option value="bpq">Ballarpur</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>Address</td>
+            <td>
+               <textarea name="Address" required cols="30" rows="10"></textarea>
+            </td>
+        </tr>
+
+        <tr> 
+            <th colspan="2">
+               <span class="iagree">I agree : <input  type="checkbox" value="iagree" ></span> 
+                <a href="#" >terms and conditions</a>
+            </th>
+        </tr>
+
+        <tr>
+            <th colspan="2">
+               <input  type="submit" value="Register" >
+               <button type="reset">Clear</button>
+            </th>
+        </tr>
+
+        <tfoot>
+            <th colspan="2">Last Submit Time: 10.00 PM</th>
+        </tfoot>
+
+
+    </table>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cart</title>
+</head>
+<body>
+    <form onsubmit="saveProduct(event)">
+        <table>
+            <tr>
+                <th> 
+                    <input type="number" id="pid" placeholder="Product id" required>                
+                </th>
+            </tr>
+            <tr>
+                <th> 
+                    <input type="text" id="pname" placeholder="Product Name" required>                
+                </th>
+            </tr>
+            <tr>
+                <th> 
+                    <input type="number" id="pprice" placeholder="Product price" required>                
+                </th>
+            </tr>
+
+            <tr>
+                <th> 
+                    <input type="text" id="pdetails" placeholder="Product Details" required>                
+                </th>
+            </tr>
+
+            <tr>
+                <th> 
+                    <input type="text" id="plocation" placeholder="location" required>                
+                </th>
+            </tr>
+            
+            <tr>
+                <th> 
+                    <input type="date" id="pdate" placeholder="date" required>                
+                </th>
+            </tr>
+           
+
+            
+
+            <tr>
+                <th>
+                    <input type="submit" value="Save Product">
+                </th>
+            </tr>
+        </table>
+    </form>
+
+    <div class="product-data">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Details</th> 
+                    <th>location</th>                 
+                    <th>date</th>    
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="product-details"></tbody>
+        </table>
+    </div>
+
+    <script>
+        function generateTable() {
+            let prodDetails = document.getElementById("product-details");
+            prodDetails.innerHTML = "";
+
+            const prodJson = localStorage.getItem("productsData");
+            const arrProd = JSON.parse(prodJson) || [];
+
+            arrProd.forEach(function (e, i) {
+                const tr = `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${e.name}</td>
+                    <td>${e.price}</td>
+                    <td>${e.details}</td>
+                    <td>${e.location}</td>
+                    <td>${e.date}</td>
+                    
+                    <td>
+                        <button onclick="updateProduct(${i})">Update</button>
+                        <button onclick="deleteProduct(${i})">Delete</button>
+                    </td>
+                </tr>
+                `;
+                prodDetails.innerHTML += tr;
+            });
+        }
+
+        generateTable();
+
+        function saveProduct(event) {
+            event.preventDefault();
+
+            const id = document.getElementById("pid").value;
+            const name = document.getElementById("pname").value;
+            const price = document.getElementById("pprice").value;
+            const details = document.getElementById("pdetails").value;
+            const location =document.getElementById("plocation").value ;
+            const date =document.getElementById("pdate").value ;
+            
+            
+
+            const product = { id, name, price,details,location, date};
+
+            let arrProd = [];
+            let prodJson = localStorage.getItem("productsData");
+
+            if (prodJson) {
+                arrProd = JSON.parse(prodJson);
+            }
+
+            arrProd.push(product);
+            localStorage.setItem("productsData", JSON.stringify(arrProd));
+
+            generateTable();
+        }
+
+        function updateProduct(index) {
+            // Implement update logic here using the index
+            // You can get the product from the array using arrProd[index]
+            // Update the form fields with the product details
+            // After updating, you might want to save the modified array back to localStorage
+        }
+
+        function deleteProduct(index) {
+            // Implement delete logic here using the index
+            // You can get the product from the array using arrProd[index]
+            // Remove the product from the array and save the modified array back to localStorage
+            let arrProd = JSON.parse(localStorage.getItem("productsData")) || [];
+            arrProd.splice(index, 1);
+            localStorage.setItem("productsData", JSON.stringify(arrProd));
+            generateTable();
+        }
+
+
+        function success(pos) {
+        const crd = pos.coords;
+        console.log(`Latitude: ${crd.latitude}`);
+        console.log(`Longitude: ${crd.latitude}`);
+    }
+    
+    // console.log(navigator.geolocation.getCurrentPosition(success))
+
+
+    </script>
+</body>
+</html>

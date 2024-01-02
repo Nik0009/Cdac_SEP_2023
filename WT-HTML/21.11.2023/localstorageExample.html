@@ -1,0 +1,28 @@
+<script>
+    function saveName()
+    {
+        const name=document.getElementById("name").value
+        localStorage.setItem("name",name)
+    }
+
+    function getName(){
+        const n=localStorage.getItem("name")
+        console.log("name="+n)
+    }
+
+    function removeName(){
+        localStorage.removeItem("name")
+    }
+
+    function clearAllName(){
+        localStorage.clear()
+    }
+
+    
+</script>
+
+<input type="text" placeholder="Enter Name" id="name">
+<button onclick="saveName()">Save Name</button>
+<button onclick="getName()">Get Name</button>
+<button onclick="removeName()">Remove Name</button>
+<button onclick="clearAllName()">Clear All Name</button>

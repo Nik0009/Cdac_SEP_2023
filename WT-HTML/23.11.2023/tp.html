@@ -1,0 +1,158 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Cart</title>
+</head>
+<body>
+    <form onsubmit="saveProduct(event)">
+        <table>
+            <tr>
+                <th> 
+                    <input type="number" id="pid" placeholder="Product id" required>                
+                </th>
+            </tr>
+            <tr>
+                <th> 
+                    <input type="text" id="pname" placeholder="Product Name" required>                
+                </th>
+            </tr>
+            <tr>
+                <th> 
+                    <input type="number" id="pprice" placeholder="Product price" required>                
+                </th>
+            </tr>
+            <tr>
+                <th> 
+                    <input type="text" id="pdetails" placeholder="Product Details" required>                
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <input type="submit" value="Save Product">
+                </th>
+                <th> 
+                    <label for="productSelectUpdate">Select for Update:</label>
+                    <select id="productSelectUpdate">
+                        <option value="-1">Select a Product</option>
+                    </select>
+                    <button type="button" onclick="updateProduct()">Update</button>
+                    <button type="button" onclick="deleteProduct()">Delete</button>
+                </th> 
+             </tr> 
+        </table>
+    </form>
+
+    <div class="product-data">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product Name</th>
+                    <th>Product Price</th>
+                    <th>Product Details</th>
+                </tr>
+            </thead>
+            <tbody id="product-details"></tbody>
+        </table>
+    </div>
+
+    <script>
+        function generateTable() {
+            let prodDetails = document.getElementById("product-details");
+            prodDetails.innerHTML = "";
+
+            let productSelectUpdate = document.getElementById("productSelectUpdate");
+            productSelectUpdate.innerHTML = '<option value="-1">Select a Product</option>';
+
+            const prodJson = localStorage.getItem("productsData");
+            const arrProd = JSON.parse(prodJson) || [];
+
+            arrProd.forEach(function (e, i) {
+                const tr = `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${e.name}</td>
+                    <td>${e.price}</td>
+                    <td>${e.details}</td>
+                </tr>
+                `;
+                prodDetails.innerHTML += tr;
+
+                
+                productSelectUpdate.innerHTML += `<option value="${i}">${e.name}</option>`;
+            });
+        }
+
+        generateTable();
+
+        function saveProduct(event) {
+            event.preventDefault();
+
+            const id = document.getElementById("pid").value;
+            const name = document.getElementById("pname").value;
+            const price = document.getElementById("pprice").value;
+            const details = document.getElementById("pdetails").value;
+
+            const product = { id, name, price, details };
+
+            let arrProd = [];
+            let prodJson = localStorage.getItem("productsData");
+
+            if (prodJson) {
+                arrProd = JSON.parse(prodJson);
+            }
+
+            arrProd.push(product);
+            localStorage.setItem("productsData", JSON.stringify(arrProd));
+
+            generateTable();
+        }
+
+        function updateProduct() {
+            let selectedIndex = document.getElementById("productSelectUpdate").value;
+
+            if (selectedIndex !== "-1") {
+                let arrProd = JSON.parse(localStorage.getItem("productsData")) || [];
+                const selectedProduct = arrProd[selectedIndex];
+
+                // Update the form fields with the product details
+                document.getElementById("pid").value = selectedProduct.id;
+                document.getElementById("pname").value = selectedProduct.name;
+                document.getElementById("pprice").value = selectedProduct.price;
+                document.getElementById("pdetails").value = selectedProduct.details;
+            } else {
+                
+                alert("Please select a product to update.");
+            }
+        }
+
+        function deleteProduct() {
+            let selectedIndex = document.getElementById("productSelectUpdate").value;
+
+            if (selectedIndex !== "-1") {
+                let arrProd = JSON.parse(localStorage.getItem("productsData")) || [];
+
+                
+                arrProd.splice(selectedIndex, 1);
+
+                
+                localStorage.setItem("productsData", JSON.stringify(arrProd));
+
+                
+                generateTable();
+            } else {
+                
+                alert("Please select a product to delete.");
+            }
+        }
+    </script>
+</body>
+</html> 
+
+
+
+
+

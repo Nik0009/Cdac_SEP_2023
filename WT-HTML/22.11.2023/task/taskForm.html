@@ -1,0 +1,263 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table,
+        td,
+        th {
+            border: 1px inset black;
+        }
+
+        table {
+            margin: 10px;
+            padding: 20px;
+        }
+
+        th,
+        td {
+
+            padding: 10px;
+        }
+
+        .box {
+            position: absolute;
+            top: 5%;
+            margin-left: 40%;
+
+        }
+    </style>
+
+
+    <script>
+
+        let s=[]
+        function saveInfo()
+        {
+            
+            let name=document.getElementById("name").value;
+            let age=document.getElementById("age").value;
+            let mobile=document.getElementById("mobile").value;
+
+            let user={name,age,mobile};
+            
+            s.push(user)
+
+             console.log(s)
+
+            localStorage.setItem('user',JSON.stringify(s))
+        }
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <div class="box">
+        <form>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Basic Details Form</th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" name="name" id="name" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Age</td>
+                    <td>
+                        <input type="number" name="age" id="age" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Mobile No.</td>
+                    <td>
+                        <input type="tel" name="mobile" id="mobile" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th colspan="2">
+                        <button type="button" onclick="saveInfo()">Save</button>
+                    </th>
+                </tr>
+
+
+
+
+            </table>
+        </form>
+    </div>
+
+</body>
+
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table,
+        td,
+        th {
+            border: 1px inset black;
+        }
+
+        table {
+            margin: 10px;
+            padding: 20px;
+        }
+
+        th,
+        td {
+
+            padding: 10px;
+        }
+
+        .box {
+            position: absolute;
+            top: 5%;
+            margin-left: 40%;
+
+        }
+    </style>
+
+
+    <script>
+
+       
+        function saveUser()
+        {
+            
+            const name=document.getElementById("name").value;
+            const age=document.getElementById("age").value;
+            const mobile=document.getElementById("mobile").value;
+
+            const user={name,age,mobile};
+
+            let arrUser=[]
+            let userJson=localStorage.getItem("user")
+            
+
+            if(userJson != null){
+                const arrUser=JSON.parse(userJson)
+            }
+            else{
+                localStorage.setItem('user',JSON.stringify([]))
+                let userJson=localStorage.getItem("user")
+                arrUser=JSON.parse(userJson)
+            }
+            
+            arrUser.push(user)  
+
+            localStorage.setItem('user',JSON.stringify(arrUser))
+        }
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <!-- <div class="box"> -->
+        <form onsubmit="saveUser()">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Basic Details Form</th>
+                    </tr>
+                </thead>
+
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" name="name" id="name" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Age</td>
+                    <td>
+                        <input type="number" name="age" id="age" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Mobile No.</td>
+                    <td>
+                        <input type="tel" name="mobile" id="mobile" required>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th colspan="2">
+                        <button type="button" >Save</button>
+                    </th>
+                </tr>
+
+
+
+
+            </table>
+        </form>
+
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Mobile no</th>
+                </tr>
+            </thead>
+
+
+
+
+        </table>
+
+
+
+
+
+
+
+
+    <!-- </div> -->
+
+</body>
+
+</html>

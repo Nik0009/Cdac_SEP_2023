@@ -1,0 +1,21 @@
+table,td,th{
+    border: 1px inset red;
+}
+table{
+    margin: 20px;
+    padding: 30px;
+}
+.box{
+    background-color: aquamarine;
+    width: 35vw;
+    padding: 10px 0;
+    margin: auto;
+}
+
+.iagree{
+    margin-right: 10px;
+}
+
+/* input[type="email"]{
+    background-color: yellow;
+} */
