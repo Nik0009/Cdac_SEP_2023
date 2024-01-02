@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="para1">helooe 1 2 3 4 5 6 6</p>
+    <p class="para1">2222 helooe 22123 4 5 6 6</p>
+
+    <p class="para2">hello world 1</p>
+
+    <p class="para1">55555 helooe 1 2 3 4 5 6 6</p>
+
+    <p class="para2">hello world 2</p>
+
+    <p class="para1">5443677 helo oe 1 2 3 4 5 6 6</p>
+
+    <p class="para2">hello world 3</p>
+
+    <script>
+        const arrPara1=Array.from(document.getElementsByClassName("para1")) 
+        const arrPara2=Array.from(document.getElementsByClassName("para2"))
+
+        arrPara1.forEach(function(e) {
+            console.log(e.innerHTML)
+            e.style.backgroundColor="red"
+            e.style.textAlign="center"
+        });
+
+        console.log("...........................................")
+
+        arrPara2.forEach(function(e) {
+            console.log(e.innerHTML)
+            e.style.backgroundColor="blue"
+            e.style.textAlign="center"
+        });
+
+
+
+    </script>
+</body>
+</html>

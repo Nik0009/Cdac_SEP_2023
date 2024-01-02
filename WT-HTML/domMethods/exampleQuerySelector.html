@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <pre>
+        ele = querySelector(string css -selector)  // first occurance 
+    </pre>
+
+
+    <p class="para">helooe 1 2 3 4 5 6 6</p>
+    <p class="para1">2222 helooe 22123 4 5 6 6</p>
+
+    <p class="para2">hello world 1</p>
+
+    <p class="para1">55555 helooe 1 2 3 4 5 6 6</p>
+
+    <p class="para2">hello world 2</p>
+
+    <p class="para1">5443677 helo oe 1 2 3 4 5 6 6</p>
+
+    <p class="para2">hello world 3</p>
+
+    <script>
+        const para1=document.querySelector(".para")
+        const arrPara1=Array.from(document.querySelectorAll(".para1")) 
+
+        // id => querySelectorAll(".para1")
+        // tag => querySelectorAll("p")
+        // attribute => querySelectorAll("p[class ='para']")
+        // group => querySelectorAll("p,article")
+
+        const arrPara2=Array.from(document.querySelectorAll(".para2"))
+
+        // arrPara1.forEach(function(e) {
+        //     console.log(e.innerHTML)
+        //     e.style.backgroundColor="red"
+        //     e.style.textAlign="center"
+        // });
+        console.log(para1.innerHTML)
+
+        console.log("...........................................")
+
+        arrPara2.forEach(function(e) {
+            console.log(e.innerHTML)
+            e.style.backgroundColor="blue"
+            e.style.textAlign="center"
+        });
+
+
+
+    </script>
+</body>
+</html>
