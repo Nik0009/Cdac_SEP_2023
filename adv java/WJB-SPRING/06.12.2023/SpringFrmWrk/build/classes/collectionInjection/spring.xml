@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+
+http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd
+
+">
+  
+    <context:annotation-config/>    
+    
+      <bean id="emp" class="collectionInjection.Employee">
+        <property name="empName" value="ramu"/>
+        <property name="phoneNos">
+            <list>
+                <value>78557575</value>
+                <value>11299225</value>
+                <value>88857575</value>
+                <value>99975975</value>
+            </list>
+        </property>
+        <property name="projects">
+            <map>
+                <entry key="placement portal" value="2"/>
+                <entry key="e-com website" value="1"/>
+                <entry key="blogging system" value="6"/>
+            </map>
+        </property>
+      
+    </bean>  
+    
+      
+    
+</beans>
+
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+
+http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd
+
+">
+  
+     <context:annotation-config/>  
+     
+<!--     <bean id="cust" class="constructorInjection.Customer" >
+         <constructor-arg name="cusId" value="101"/>
+         <constructor-arg name="cusName" value="raju"/>
+         <constructor-arg name="itemPurchased">
+             <set>
+                 <value>masale</value>
+                 <value>soap</value>
+                 <value>shampoo</value>
+                 <value>milk</value>
+             </set>
+         </constructor-arg>
+           
+     </bean>-->
+      
+      
+      
+<!--       <bean id="add" class="constructorInjection.Addition">
+        <constructor-arg  value="10" type="int" name="b"/>
+        <constructor-arg  value="20" type="int" name="a"/>
+    </bean>
+      -->
+      
+<!--      for finding by index-->
+
+ <bean id="add" class="constructorInjection.Addition">
+        <constructor-arg  value="10" type="int" index="1" />
+        <constructor-arg  value="20" type="int" index="0"/>
+    </bean>
+      
+    
+</beans>
+
+
